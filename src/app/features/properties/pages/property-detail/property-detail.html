@@ -1,1 +1,80 @@
-<p>property-detail works!</p>
+<section *ngIf="property" class="py-16">
+  <div class="max-w-7xl mx-auto px-6">
+    <!-- Imagen principal -->
+    <img [src]="property.imageUrl" class="w-full h-[450px] object-cover rounded-xl" />
+
+    <div *ngIf="property.images?.length" class="grid grid-cols-4 gap-4 mt-4">
+      <img
+        *ngFor="let img of property.images"
+        [src]="img"
+        class="h-32 w-full object-cover rounded-lg cursor-pointer hover:opacity-80 transition"
+      />
+    </div>
+    <!-- Información -->
+    <div class="mt-10 grid md:grid-cols-2 gap-10">
+      <div>
+        <h1 class="text-3xl font-bold">
+          {{ property.title }}
+        </h1>
+
+        <p class="text-gray-500 mt-2">
+          {{ property.location }}
+        </p>
+
+        <div class="flex gap-6 mt-6 text-gray-600">
+          <span>🛏 {{ property.beds }} habitaciones</span>
+          <span>🛁 {{ property.baths }} baños</span>
+          <span>📐 {{ property.sqft }} m²</span>
+        </div>
+
+        <p class="mt-6 text-gray-600">
+          {{ property.description }}
+        </p>
+      </div>
+
+      <div *ngIf="property.features?.length" class="mt-10">
+        <h2 class="text-xl font-semibold mb-4">Amenidades</h2>
+
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+          <div
+            *ngFor="let feature of property.features"
+            class="bg-gray-100 px-4 py-2 rounded-lg text-sm"
+          >
+            ✓ {{ feature }}
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="property.lat && property.lng" class="mt-10">
+        <h2 class="text-xl font-semibold mb-4">Ubicación</h2>
+
+        <iframe
+          class="w-full h-96 rounded-xl"
+          [src]="
+            'https://maps.google.com/maps?q=' +
+            property.lat +
+            ',' +
+            property.lng +
+            '&z=15&output=embed'
+          "
+        >
+        </iframe>
+      </div>
+      <!-- Precio -->
+      <div class="bg-gray-100 p-8 rounded-xl h-fit">
+        <div class="text-3xl font-bold text-blue-600">${{ property.price | number }}</div>
+
+        <button class="mt-6 w-full bg-blue-600 text-white py-3 rounded-lg">Contactar agente</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="mt-20">
+  <h2 class="text-2xl font-bold mb-8">Propiedades similares</h2>
+
+  <div class="grid md:grid-cols-3 gap-8">
+    <app-property-card *ngFor="let property of similarProperties" [property]="property">
+    </app-property-card>
+  </div>
+</section>

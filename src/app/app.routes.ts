@@ -3,6 +3,7 @@ import { Routes } from '@angular/router';
 export const routes: Routes = [
   {
     path: '',
+    pathMatch: 'full',
     loadComponent: () => import('./features/home/home/home').then((m) => m.Home),
   },
 
@@ -35,5 +36,12 @@ export const routes: Routes = [
   {
     path: 'blog',
     loadComponent: () => import('./features/blog/blog-list/blog-list').then((m) => m.BlogList),
+  },
+  {
+    path: 'calculadora',
+    loadComponent: () =>
+      import('./features/mortgage-calculator/mortgage-calculator/mortgage-calculator').then(
+        (m) => m.MortgageCalculator,
+      ),
   },
 ];

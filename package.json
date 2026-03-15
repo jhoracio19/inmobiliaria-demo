@@ -32,6 +32,7 @@
     "@angular/router": "^20.3.0",
     "@angular/ssr": "^20.3.6",
     "@tailwindcss/postcss": "^4.2.0",
+    "aos": "^2.3.4",
     "express": "^5.1.0",
     "lucide-angular": "^0.577.0",
     "postcss": "^8.5.6",

@@ -1,1 +1,50 @@
-<p>navbar works!</p>
+<nav class="bg-white shadow-sm sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="flex justify-between items-center h-16">
+      <!-- Logo -->
+      <a routerLink="/" class="font-bold text-lg">
+        INMOTECH <span class="text-blue-600">LUXURY</span>
+      </a>
+
+      <!-- Desktop menu -->
+      <div class="hidden md:flex items-center gap-8 text-gray-600">
+        <a routerLink="/" routerLinkActive="text-blue-600 font-semibold"> Inicio </a>
+
+        <a routerLink="/propiedades" routerLinkActive="text-blue-600 font-semibold">
+          Propiedades
+        </a>
+
+        <a routerLink="/servicios" routerLinkActive="text-blue-600 font-semibold"> Servicios </a>
+
+        <a routerLink="/agencia" routerLinkActive="text-blue-600 font-semibold"> Agencia </a>
+
+        <a routerLink="/calculadora">Calculadora</a>
+
+        <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition">
+          Contáctanos
+        </button>
+      </div>
+
+      <!-- Mobile button -->
+      <button class="md:hidden text-gray-700" (click)="toggleMenu()">☰</button>
+    </div>
+  </div>
+
+  <!-- Mobile menu -->
+
+  <div *ngIf="menuOpen" class="md:hidden bg-white border-t">
+    <div class="flex flex-col px-6 py-4 gap-4">
+      <a routerLink="/" (click)="toggleMenu()"> Inicio </a>
+
+      <a routerLink="/propiedades" (click)="toggleMenu()"> Propiedades </a>
+
+      <a routerLink="/servicios" (click)="toggleMenu()"> Servicios </a>
+
+      <a routerLink="/agencia" (click)="toggleMenu()"> Agencia </a>
+
+      <a routerLink="/calculadora" (click)="toggleMenu()">Calculadora</a>
+
+      <button class="bg-blue-600 text-white px-4 py-2 rounded-lg">Contáctanos</button>
+    </div>
+  </div>
+</nav>

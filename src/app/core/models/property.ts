@@ -1,11 +1,26 @@
 export interface Property {
-  id: number;
+  id: string;
+
   title: string;
+  slug: string;
+
   price: number;
+  type: 'Venta' | 'Renta';
+
   location: string;
+  zone?: string;
+
   beds: number;
   baths: number;
   sqft: number;
+
+  description?: string;
+
   imageUrl: string;
-  type: 'Venta' | 'Renta';
+  images?: string[];
+
+  features?: string[];
+
+  lat?: number;
+  lng?: number;
 }

@@ -1,1 +1,20 @@
-<p>featured-properties works!</p>
+<section class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-6">
+    <!-- título -->
+
+    <div class="flex justify-between items-center mb-12">
+      <h2 class="text-3xl font-bold">Propiedades destacadas</h2>
+
+      <a routerLink="/propiedades" class="text-blue-600 font-semibold hover:underline">
+        Ver todas
+      </a>
+    </div>
+
+    <!-- propiedades -->
+
+    <div class="grid md:grid-cols-3 gap-8">
+      <app-property-card *ngFor="let property of properties" [property]="property">
+      </app-property-card>
+    </div>
+  </div>
+</section>
