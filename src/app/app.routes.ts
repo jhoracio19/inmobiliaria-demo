@@ -37,11 +37,17 @@ export const routes: Routes = [
     path: 'blog',
     loadComponent: () => import('./features/blog/blog-list/blog-list').then((m) => m.BlogList),
   },
+
   {
     path: 'calculadora',
     loadComponent: () =>
       import('./features/mortgage-calculator/mortgage-calculator/mortgage-calculator').then(
         (m) => m.MortgageCalculator,
       ),
+  },
+
+  {
+    path: '**',
+    redirectTo: '',
   },
 ];
